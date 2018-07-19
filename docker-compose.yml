@@ -27,3 +27,5 @@ services:
      - nodechat
     expose:
      - "8010"
+    ports:
+     - "127.0.0.1:8010:8010"  # let outside world see 8010

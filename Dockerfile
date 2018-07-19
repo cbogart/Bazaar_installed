@@ -2,7 +2,7 @@ FROM openjdk:8
 
 # Install maven
 RUN apt-get update
-RUN apt-get install -y netcat screen vim nodejs
+RUN apt-get install -y netcat screen vim nodejs wget
 
 WORKDIR /usr/bazaar/
 

@@ -1,7 +1,7 @@
 var winston    = require('winston');
 var mysql      = require('mysql');
 var mysql_auth = {
-      host     : 'localhost',
+      host     : 'nodechat',
       user     : 'root',
       password : 'smoot',
       port     : 3306
@@ -12,7 +12,7 @@ var lti = require('ims-lti');
 var consumer_key = "BazaarLTI";
 var consumer_secret = "BLTI";
 var localPort = 8010
-var localURL = "http://localhost:" + localPort
+var localURL = "http://127.0.0.1:" + localPort
 
 function sleep(milliseconds) {
   console.log("sleep start");
