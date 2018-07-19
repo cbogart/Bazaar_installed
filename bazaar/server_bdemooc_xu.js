@@ -2,15 +2,17 @@ var winston    = require('winston');
 var mysql      = require('mysql');
 var mysql_auth = {
       host     : 'localhost',
-      user     : 'local',
-      password : 'local',
-      socketPath: '/var/run/mysqld/mysqld.sock',
+      user     : 'root',
+      password : 'smoot',
+      port     : 3306
     };
 var connection;
 var bodyParser = require('body-parser');
 var lti = require('ims-lti');
 var consumer_key = "BazaarLTI";
 var consumer_secret = "BLTI";
+var localPort = 8010
+var localURL = "http://localhost:" + localPort
 
 function sleep(milliseconds) {
   console.log("sleep start");
@@ -73,7 +75,7 @@ var app = express()
 
 var logger;
 
-server.listen(80);
+server.listen(localPort);
 // routing
 
 
@@ -260,7 +262,7 @@ function setTeam_(teamNumber,req,provider,logger,res)
         if(req.query.html != undefined) html_page = req.query.html;
 
         var roomname = req.query.roomName + teamNumber;
-        var url = 'http://bazaar.lti.cs.cmu.edu:80/chat/'+ roomname  + '/' + req.query.mturkid + '/' +
+        var url = localURL + '/chat/'+ roomname  + '/' + req.query.mturkid + '/' +
                                                              req.query.username + '/' + req.query.perspective + '/' + '?html=' + html_page + '&forum=' + req.query.forum;
 
         res.writeHead(301,{Location: url});
@@ -286,7 +288,7 @@ function setTeam(teamNumber,req,provider,logger,res)
         var html_page = 'index';
         if(req.query.html != undefined) html_page = req.query.html;
         var roomname = req.query.roomName + pad(teamNumber, 2);
-	var url = 'http://bazaar.lti.cs.cmu.edu:80/chat/'+ roomname  + '/' + provider.userId + '/?html=' + html_page;
+        var url = localURL + '/chat/'+ roomname  + '/' + provider.userId + '/?html=' + html_page;
 
     	res.writeHead(301,{Location: url});
     	res.end();

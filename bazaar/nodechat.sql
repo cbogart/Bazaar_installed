@@ -17,7 +17,7 @@ CREATE TABLE `room` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL COMMENT 'The name of the chat room',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modified` timestamp DEFAULT NULL COMMENT 'The last time this room was entered by a chat user.',
+  `modified` timestamp NULL DEFAULT NULL COMMENT 'The last time this room was entered by a chat user.',
   `comment` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
