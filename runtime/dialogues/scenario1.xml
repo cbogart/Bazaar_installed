@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scenario SYSTEM "TuTalkScenario.dtd">
+<scenario default-language="en" scenario-name="hug_example">
+	<configuration>
+<!-- 		<module kind="model" name="animals"
+			classname="edu.cmu.cs.lti.tutalk.module.SidePredictor">
+			<param key="path" value="models/animals.ser" />
+		</module> -->
+	</configuration>
+
+	<transitions>
+	
+		<transition ack-type="none">
+			<tphrase> moving on... </tphrase>
+		</transition>
+	</transitions>
+	
+	<concepts>
+		<concept label="unanticipated-response">
+			<phrase>anything else</phrase>
+		</concept>
+		<concept label="question">
+			<phrase>An existing drug is found to be a promising lead for new target.  Which
+property of the lead (molecular weight, potency, lipophilicity) is most "lead-like",
+as opposed to "drug-like"?</phrase>
+		</concept>
+		
+		<concept label="yes" type="annotation">
+			<phrase>AFFIRMATIVE</phrase>
+		</concept>
+		
+		<concept label="no" type="annotation">
+			<phrase>NEGATIVE</phrase>
+		</concept>
+		
+		<concept label="correct_response">
+			<phrase>Correct.  As a lead, the potency will be weak.  The molecule will however
+have a high, drug-like molecular weight and lipophilicity.</phrase>
+		</concept>
+		
+		<concept label="incorrect_response">
+			<phrase>Incorrect.  Because the lead is actually a drug, the lead will have drug-like
+properties with respect to molecular weight and lipophilicity.  The lead's activity
+against its new target will be weak.  Therefore its potency is lead-like.</phrase>
+		</concept>
+		
+		<concept label="answer" type="regex">
+			<phrase>potency|activity|strength|binding</phrase>
+		</concept>
+		
+		<concept label="conclusion">
+			<phrase>Let's move on to the discussion now.</phrase>
+		</concept>
+		
+	</concepts>
+
+	<script>
+		<goal name="start" difficulty="1">
+			<step>
+				<initiation>question</initiation>
+				<response say="correct_response">answer</response>
+				<response say="incorrect_response">unanticipated-response</response>
+			</step>
+			
+			<step>
+				<initiation>conclusion</initiation>
+			</step>
+			
+		</goal>
+	</script>
+
+</scenario>

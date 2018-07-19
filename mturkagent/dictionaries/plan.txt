@@ -1,0 +1,40 @@
+plan1
+plan 1
+plan one
+option 1
+option1
+option one
+first choice
+1st choice
+plan A
+plan a
+plan2
+plan 2
+plan two
+option 2
+option2
+option two
+2nd choice
+second choice
+plan b
+plan B
+plan3
+plan 3
+plan three
+option 3
+option3
+option three
+3rd choice
+third choice
+plan c 
+plan C
+plan4
+plan 4
+option 4
+option4
+plan four
+option four
+4th choice
+fourth choice
+plan d
+plan D

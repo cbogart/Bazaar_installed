@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scenario SYSTEM "TuTalkScenario.dtd">
+<scenario default-language="en" scenario-name="hug_example">
+	<configuration>
+<!-- 		<module kind="model" name="animals"
+			classname="edu.cmu.cs.lti.tutalk.module.SidePredictor">
+			<param key="path" value="models/animals.ser" />
+		</module> -->
+	</configuration>
+
+	<transitions>
+	
+		<transition ack-type="none">
+			<tphrase> moving on... </tphrase>
+		</transition>
+	</transitions>
+	
+	<concepts>
+		<concept label="unanticipated-response">
+			<phrase>anything else</phrase>
+		</concept>
+		<concept label="question">
+			<phrase>What is the greatest advantage that natural product libraries have over
+synthetic chemical libraries?</phrase>
+		</concept>
+		
+		<concept label="yes" type="annotation">
+			<phrase>AFFIRMATIVE</phrase>
+		</concept>
+		
+		<concept label="no" type="annotation">
+			<phrase>NEGATIVE</phrase>
+		</concept>
+		
+		<concept label="correct_response">
+			<phrase>Correct.  Natural products tend to be much more diverse and complex in their
+molecular structure than molecules that are typically found in a chemical library
+consisting of synthetic molecules.</phrase>
+		</concept>
+		
+		<concept label="incorrect_response">
+			<phrase>Incorrect.  Natural products tend to be much more diverse in their structure
+than synthetic molecules.  For this reason, including natural products in a chemical
+library can improve the ability of the library to sample the vastness of drug space.</phrase>
+		</concept>
+		
+		<concept label="answer" type="regex">
+			<phrase>diversity|variety|assortment|mixture|range|variation|variance|complexity</phrase>
+		</concept>
+		
+		<concept label="conclusion">
+			<phrase>Let's move on to the discussion now.</phrase>
+		</concept>
+				
+	</concepts>
+
+	<script>
+		<goal name="start" difficulty="1">
+			<step>
+				<initiation>question</initiation>
+				<response say="correct_response">answer</response>
+				<response say="incorrect_response">unanticipated-response</response>
+			</step>
+			
+			<step>
+				<initiation>conclusion</initiation>
+			</step>
+			
+		</goal>
+	</script>
+
+</scenario>

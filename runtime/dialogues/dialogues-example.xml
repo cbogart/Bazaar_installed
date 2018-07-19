@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogs>
+
+    
+    <dialog concept="fragment-based screening" scenario="scenario-donothing.xml" description="the difference between the traditional lead discovery approach and fragment based approach" poke_message="How does the size of fragment space compare to drug space?">
+    	
+        <intro>
+Why can fragment libraries be so much smaller than a traditional, drug-like library and still serve as an effective drug discovery tool?
+        </intro>
+    </dialog>
+    <dialog concept="lead selection" scenario="scenario-donothing.xml" description="qualities of a hit that make it promising as a lead" poke_message="All the factors of Lipinski’s rules are metrics, as are ligand efficiency and ligand lipophilicity efficiency.  How do any of these help determine a lead’s potential as a possible drug?">
+    	
+        <intro>
+Name and describe at least one metric that is sometimes used to judge the potential merit of one lead over another.
+        </intro>
+    </dialog>
+    <dialog concept="selective optimization of side activities" scenario="scenario-donothing.xml" description="using existing drugs to discovery new drugs" poke_message="What properties of existing drugs makes them very attractive as starting points for discovering new drugs?">
+    	
+        <intro>
+Leads from a SOSA program are no more active than other types of leads.  Discuss why advocates of the SOSA approach feel that SOSA-based leads are especially promising for drug discovery?
+        </intro>
+    </dialog>
+    <dialog concept="natural products" scenario="scenario-donothing.xml" description="strengths of natural products for drug discovery" poke_message="Where do both the substrate and a competitive inhibitor bind an enzyme?">
+    	
+        <intro>
+Discuss why knowing the substrate of an enzyme is helpful for the design of a competitive inhibitor of the same enzyme.
+        </intro>
+    </dialog>    
+                  
+    <dialog concept="FINISH" scenario="scenario-donothing.xml" description="">
+    	
+        <intro>
+And now we’re done. Thanks for joining us, have a great day! I will now continue the chat activity again starting from the first prompt for those who missed the initial prompts.
+        </intro>
+    </dialog>   
+</dialogs>
