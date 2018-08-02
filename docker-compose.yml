@@ -15,7 +15,7 @@ services:
       MYSQL_USER: "local"
       MYSQL_PASSWORD: "local"
     ports:
-     - "127.0.0.1:8083:3306"  # let outside world see 8083
+     - "127.0.0.1:8089:3306"  # let outside world see 8083
     expose:
      - "3306"    # Let other containers see 3306
 
