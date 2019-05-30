@@ -23,6 +23,8 @@ services:
     container_name: bazaar
     depends_on:
      - nodechat
+   ports:
+     - "8119:80"  # let outside world see 8119
     networks:
     - bazaar-net
 networks:
