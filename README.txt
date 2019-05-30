@@ -1,11 +1,5 @@
 Instructions (development environment):
     Install docker
-    Install Node
-  Run following commands
-    cd bazaar
-    npm install
-
-    cd ..
     docker-compose -f docker-compose-dev.yml build
     docker-compose -f docker-compose-dev.yml up
 
