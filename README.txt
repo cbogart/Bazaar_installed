@@ -7,7 +7,7 @@ Instructions (development environment):
 
     cd ..
     docker-compose -f docker-compose-dev.yml build
-    docker-compose -f docker-compose-dev.yml up -d
+    docker-compose -f docker-compose-dev.yml up
 
 If this works, it will serve bazaar on port 80.
 
