@@ -22,3 +22,11 @@ CREATE TABLE `room` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) AUTO_INCREMENT=316 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `consent` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `roomname` varchar(100) NOT NULL,
+  `userid` varchar(100) NOT NULL,
+  `consent` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) AUTO_INCREMENT=425 DEFAULT CHARSET=utf8;

@@ -6,7 +6,7 @@
 
 <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 <link href='https://rawgit.com/gtomar/help-button-javascript/master/discussion.css' rel='stylesheet' type='text/css'>
-<script src="/socket.io/socket.io.js"></script>
+<script src="socket.io/socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://rawgit.com/gtomar/stylesheets/master/colors.js"></script>
 <script src="https://rawgit.com/gtomar/stylesheets/master/jquery.sortable.js"></script>
@@ -14,7 +14,6 @@
 
 
 <script>
-    var chatserver_url = 'http://127.0.0.1:8010';
     var windowHasFocus = true;
     var unreadMessages = 0;
     var lastDate = null;
@@ -138,7 +137,10 @@
     
     
 
-	var socket = io.connect(chatserver_url);
+	// var socket = io.connect(chatserver_url);
+    const socket = io({
+        path: '/bazsocket'
+    });
 	var users = {};
 	var user = 'You'
 	var room = 'Here'

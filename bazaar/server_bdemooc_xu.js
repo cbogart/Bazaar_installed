@@ -11,8 +11,8 @@ var bodyParser = require('body-parser');
 var lti = require('ims-lti');
 var consumer_key = "BazaarLTI";
 var consumer_secret = "BLTI";
-var localPort = 8010
-var localURL = "http://127.0.0.1:" + localPort
+var localPort = 80;
+var localURL = "/bazaar";
 
 function sleep(milliseconds) {
   console.log("sleep start");
@@ -63,31 +63,31 @@ handleDisconnect();
 
 var numUsers = {};
 var teamNumber = 0;
-var express = require('express');
+
 var csv = require('csv');
 var sys = require('sys')
 var exec = require('child_process').exec;
 
-var app = express()
-  , http = require('http')
-  , server = http.createServer(app)
-  , io = require('socket.io').listen(server);
-
 var logger;
+
+var app = require('express')();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server, {path: '/bazsocket'});
+
 
 server.listen(localPort);
 // routing
 
 
-function puts(error, stdout, stderr) { sys.puts(stdout) }
-//function setTeam(number){teamNumber = number;} 
+function puts(error, stdout, stderr) { console.log(stdout) }
+
 io.set('log level', 1);
 
 app.use(bodyParser.urlencoded());
 
-app.get('/room_status_all', function (req, res)
+app.get('/bazaar/room_status_all', function (req, res)
 {
-    console.log("app.get('/room_status_all')");
+    console.log("app.get('/bazaar/room_status_all')");
     var connection = mysql.createConnection(mysql_auth);
     var query = 'SELECT name from nodechat.room where name like "normaldist%"';
     console.log(query);
@@ -106,9 +106,9 @@ app.get('/room_status_all', function (req, res)
     });
 });
 
-app.get('/room_status*', function (req, res)
+app.get('/bazaar/room_status*', function (req, res)
 {
-    console.log("app.get('/room_status*')");
+    console.log("app.get('/bazaar/room_status*')");
     var connection = mysql.createConnection(mysql_auth);
     var query = 'SELECT name from nodechat.room where name='+mysql.escape("normaldist"+req.query.roomId);
     console.log(query);
@@ -128,7 +128,7 @@ app.get('/room_status*', function (req, res)
     });
 });
 
-app.get('/welcome*', function (req, res)
+app.get('/bazaar/welcome*', function (req, res)
 {
     console.log("Welcome");
     res.sendfile("welcome.html");
@@ -136,7 +136,7 @@ app.get('/welcome*', function (req, res)
 
 
 
-app.get('/login*', function (req, res)
+app.get('/bazaar/login*', function (req, res)
 {
     console.log("Hi");
     //console.log(req);
@@ -144,7 +144,7 @@ app.get('/login*', function (req, res)
     var provider = new lti.Provider(consumer_key, consumer_secret);
     var isValidRequest = false;
     teamNumber = 0;
-    logger      = new (winston.Logger)({   transports: [
+    logger      =  winston.createLogger({   transports: [
         new (winston.transports.Console)(),
         new (winston.transports.File)({ filename: req.query.roomName + ".log" })]});
 
@@ -165,14 +165,14 @@ app.get('/login*', function (req, res)
    }
 });
 
-app.post('/login*', function (req, res)
+app.post('/bazaar/login*', function (req, res)
 {
     console.log("Hi");
     var connection = mysql.createConnection(mysql_auth);
     var provider = new lti.Provider(consumer_key, consumer_secret);
     var isValidRequest = false;
     teamNumber = 0;
-    logger      = new (winston.Logger)({   transports: [
+    logger      =  winston.createLogger({   transports: [
         new (winston.transports.Console)(),
         new (winston.transports.File)({ filename: req.query.roomName + ".log" })]});
 
@@ -305,7 +305,7 @@ function setTeam(teamNumber,req,provider,logger,res)
         
 }
 
-app.get('/chat*', function (req, res) 
+app.get('/bazaar/chat*', function (req, res)
 {
 
 	var html_page = 'index';
@@ -314,13 +314,13 @@ app.get('/chat*', function (req, res)
 	res.sendfile(html_page + '.html');
 });
 
-app.get('/observe/*', function (req, res) 
+app.get('/bazaar/observe/*', function (req, res)
 {
     res.sendfile('index.html');
 });
 
 
-app.get('/data/*', function (req, res) 
+app.get('/bazaar/data/*', function (req, res)
 {
     groups = /\/data\/([^\/]+)/.exec(req.url)	  
     room = groups[1];
