@@ -55,7 +55,7 @@ ul.tab li a:focus, .active {
 <link property='stylesheet' href='https://rawgit.com/marinawang/bazaar/master/discussionnew.css' rel='stylesheet' id='filecss' type='text/css' />
 <!--<link property='stylesheet' href='style_ccc.css' rel='stylesheet' id='filecss' type='text/css' />-->
 <script src="https://rawgit.com/marinawang/bazaar/master/client.js"></script>
-<script src="/bazsocket/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://rawgit.com/gtomar/stylesheets/master/colors.js"></script>
 <script src="https://rawgit.com/gtomar/stylesheets/master/jquery.sortable.js"></script>
@@ -227,7 +227,7 @@ ul.tab li a:focus, .active {
     //     path: '/bazaar'
     // });
     const socket = io({
-        path: '/bazsocket'
+        path: '/socket.io'
     });
 
 	var users = {};

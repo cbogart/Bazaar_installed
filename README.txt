@@ -19,6 +19,6 @@ Instructions (production environment):
     docker-compose build
     docker-compose up -d
 
-    Configure your production proxy to route following URL path beginnings "/bazaar" and "/bazsocket" to bazaar backend server
+    Configure your production proxy to route following URL path beginnings "/bazaar" and "/socket.io" to bazaar backend server
     Test for access
     http(s)://your-domain/bazaar/login?roomName=ccc&roomId=100&mturkid=1&username=Abbott&perspective=1&html=index_ccc

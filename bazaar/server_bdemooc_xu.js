@@ -72,7 +72,7 @@ var logger;
 
 var app = require('express')();
 var server = require('http').createServer(app);
-var io = require('socket.io')(server, {path: '/bazsocket'});
+var io = require('socket.io')(server, {path: '/socket.io'});
 
 
 server.listen(localPort);
