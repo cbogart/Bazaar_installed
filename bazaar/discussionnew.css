@@ -55,7 +55,7 @@
     .info
     {
         background-color:#fc9b14;
-        color:black;
+        color:white;
         overflow:hidden;
         width:100%;
         padding-left:10px;
@@ -66,7 +66,7 @@
     .image_info
     {
         background-color:#fc9b14;
-        color:black;
+        color:white;
         overflow:hidden;
         padding-left:10px;
         padding-top:5px;
@@ -96,7 +96,7 @@
     {
         width:100%;
         overflow-x:hidden;
-        background-color:black;
+        background-color:white;
     }
     
     .message_agent
@@ -114,7 +114,7 @@
 
     .info a:link
     {
-    color:black;
+    color:white;
     }
 
     .info a:visited
@@ -351,7 +351,7 @@
     
     .chem_text
     {
-    background:black; 
+    background:white; 
         padding:5px;
     }
     
