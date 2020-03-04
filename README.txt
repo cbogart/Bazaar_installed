@@ -22,3 +22,4 @@ Instructions (production environment):
     Configure your production proxy to route following URL path beginnings "/bazaar" and "/bazsocket" to bazaar backend server
     Test for access
     http(s)://your-domain/bazaar/login?roomName=ccc&roomId=100&mturkid=1&username=Abbott&perspective=1&html=index_ccc
+    http(s)://your-domain/bazaar/login?roomName=ccc&roomId=100&mturkid=1&username=Costello&perspective=1&html=index_ccc
