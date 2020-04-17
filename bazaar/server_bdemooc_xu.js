@@ -314,6 +314,11 @@ app.get('/bazaar/chat*', function (req, res)
 	res.sendfile(html_page + '.html');
 });
 
+app.get('/bazaar/discussionnew.css', function (req,res)
+{
+    res.sendfile('discussionnew.css')
+});
+
 app.get('/bazaar/observe/*', function (req, res)
 {
     res.sendfile('index.html');
